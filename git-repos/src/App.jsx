@@ -1,21 +1,12 @@
-// App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import RepoDetail from './components/RepoDetail';
-// import RepoList from './components/RepoList';
+import React from 'react'
+import GitHubRepos from './components/GitHubRepos'
 
 const App = () => {
   return (
+    <>
+      <GitHubRepos/>
+    </>
+  )
+}
 
-
-    <h1>Hello world</h1>
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" exact component={RepoList} />
-    //     <Route path="/repositories/:repoName" component={RepoDetail} />
-    //   </Routes>
-    // </Router>
-  );
-};
-
-export default App;
+export default App
