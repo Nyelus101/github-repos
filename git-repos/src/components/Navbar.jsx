@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Navbar = () => {
-  const [username, setUsername] = useState('');
-
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
+const Navbar = ({ setUsername, selectedRepo, setSelectedRepo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle submission, e.g., save to state or perform an action
-    console.log("Username submitted:", username);
+    const newUsername = e.target.elements.username.value.trim();
+    setUsername(newUsername);
+    setSelectedRepo(null);
   };
 
   return (
@@ -20,8 +15,7 @@ const Navbar = () => {
         <form onSubmit={handleSubmit} className="flex">
           <input
             type="text"
-            value={username}
-            onChange={handleUsernameChange}
+            name="username"
             className="px-4 py-2 mr-2 rounded-lg bg-gray-700 text-white focus:outline-none"
             placeholder="Enter username"
           />
