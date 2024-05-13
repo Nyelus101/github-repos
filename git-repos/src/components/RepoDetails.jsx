@@ -11,7 +11,7 @@ const RepoDetails = ({ repo }) => {
   });
 
   return (
-    <div>
+    <div style={{ textAlign: 'justify' }}>
       <h2 className="text-2xl font-bold mb-4">{repo.name}</h2>
       <p className="text-gray-800 mb-2"><span className="font-semibold">Description:</span> {repo.description || 'No description'}</p>
       <p className="text-gray-800 mb-2"><span className="font-semibold">Language:</span> {repo.language || 'N/A'}</p>
