@@ -9,19 +9,19 @@ const Navbar = ({ setUsername, selectedRepo, setSelectedRepo }) => {
   };
 
   return (
-    <div className="bg-gray-800 py-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white">Navbar</div>
+    <div className="bg-gray-800 py-6 md:py-4">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <div className="text-white text-lg md:text-lg">Navbar</div>
         <form onSubmit={handleSubmit} className="flex">
           <input
             type="text"
             name="username"
-            className="px-4 py-2 mr-2 rounded-lg bg-gray-700 text-white focus:outline-none"
+            className="px-2 py-1 md:px-4 md:py-2 mr-2 rounded-lg bg-gray-700 text-white text-sm md:text-base focus:outline-none"
             placeholder="Enter username"
           />
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg text-white"
+            className="bg-blue-500 hover:bg-blue-600 px-2 py-1 md:px-4 md:py-2 rounded-lg text-white text-sm md:text-base"
           >
             Submit
           </button>
