@@ -3,24 +3,34 @@ import RepoDetails from './RepoDetails';
 
 const GitHubRepos = () => {
   const [repos, setRepos] = useState([]);
+  const [firstName, setFirstName] = useState('');
   const [page, setPage] = useState(1);
   const [selectedRepo, setSelectedRepo] = useState(null);
 
   useEffect(() => {
-    const fetchRepos = async () => {
+    const fetchUserAndRepos = async () => {
       try {
-        const response = await fetch(`https://api.github.com/users/Nyelus101/repos?page=${page}&per_page=5`);
-        if (!response.ok) {
+        const userResponse = await fetch(`https://api.github.com/users/Nyelus101`);
+        if (!userResponse.ok) {
+          throw new Error('Failed to fetch user');
+        }
+        const userData = await userResponse.json();
+        // Extract the first name from the full name
+        const firstName = userData.name ? userData.name.split(' ')[0] : '';
+        setFirstName(firstName);
+
+        const reposResponse = await fetch(`https://api.github.com/users/Nyelus101/repos?page=${page}&per_page=5`);
+        if (!reposResponse.ok) {
           throw new Error('Failed to fetch repositories');
         }
-        const data = await response.json();
-        setRepos(data);
+        const reposData = await reposResponse.json();
+        setRepos(reposData);
       } catch (error) {
-        console.error('Error fetching repositories:', error);
+        console.error('Error fetching data:', error);
       }
     };
 
-    fetchRepos();
+    fetchUserAndRepos();
   }, [page]);
 
   const nextPage = () => {
@@ -39,9 +49,10 @@ const GitHubRepos = () => {
 
   return (
     <div className="container mx-auto mt-8">
+      <h1 className="text-3xl font-bold mb-4">{firstName}'s GitHub Repositories</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h2 className="text-2xl font-bold mb-4">My GitHub Repositories</h2>
+          <h2 className="text-2xl font-bold mb-4">Repositories</h2>
           <ul>
             {repos.map(repo => (
               <li key={repo.id} className="mb-4">
@@ -69,6 +80,8 @@ const GitHubRepos = () => {
 };
 
 export default GitHubRepos;
+
+
 
 
 
