@@ -69,14 +69,14 @@ const GitHubRepos = ({ username, selectedRepo, setSelectedRepo }) => {
     <div className="container mx-auto mt-8">
       <div>
         <h1 className="text-3xl font-bold mb-4">{firstName}'s GitHub Repositories</h1>
-        <h4 className="text-xl font-semibold mb-4">Total of {totalRepos} public repositories</h4>
+        <h4 className="text-md font-semibold mb-4">Total of {totalRepos} public repositories.</h4>
         {errorMessage && (
           <div className="text-red-500 mb-4">{errorMessage}</div>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl font-bold mb-4">Repositories</h2>
-            <ul className='sm-bg-gray-400' >
+            <ul className='bg-gray-600'>
               {repos.map(repo => (
                 <li key={repo.id} className="mb-4">
                   <button onClick={() => showRepoDetails(repo)} className="block w-full bg-gradient-to-r from-gray-600 to-gray-800 hover:bg-gradient-to-r hover:from-gray-900 hover:to-gray-800 text-white font-semibold py-2 px-4 rounded shadow-md transition duration-300 ease-in-out transform lg:hover:scale-105">
