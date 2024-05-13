@@ -67,7 +67,7 @@ const GitHubRepos = ({ username, selectedRepo, setSelectedRepo }) => {
             <ul>
               {repos.map(repo => (
                 <li key={repo.id} className="mb-4">
-                  <button onClick={() => showRepoDetails(repo)} className="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                  <button onClick={() => showRepoDetails(repo)} className="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded shadow-md transition duration-300 ease-in-out transform lg:hover:scale-105">
                     {repo.name}
                   </button>
                 </li>
