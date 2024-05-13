@@ -11,7 +11,7 @@ const Navbar = ({ setUsername, selectedRepo, setSelectedRepo }) => {
   return (
     <div className="bg-gray-800 py-6 md:py-4">
       <div className="container mx-auto flex justify-between items-center px-4">
-        <div className="text-white text-lg md:text-lg">Navbar</div>
+        <div className="text-white text-lg md:text-lg sm:px-2">Navbar</div>
         <form onSubmit={handleSubmit} className="flex">
           <input
             type="text"
