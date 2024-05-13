@@ -48,7 +48,9 @@ const GitHubRepos = ({ username, selectedRepo, setSelectedRepo }) => {
   }, [username, page]);
 
   const nextPage = () => {
-    setPage(page + 1);
+    if (page <= totalPages) {
+      setPage(page + 1);
+    }
   };
 
   const prevPage = () => {
@@ -60,6 +62,8 @@ const GitHubRepos = ({ username, selectedRepo, setSelectedRepo }) => {
   const showRepoDetails = (repo) => {
     setSelectedRepo(repo);
   };
+
+  const totalPages = Math.ceil(totalRepos / 5); // Assuming 5 repos per page
 
   return (
     <div className="container mx-auto mt-8">
@@ -83,7 +87,7 @@ const GitHubRepos = ({ username, selectedRepo, setSelectedRepo }) => {
             </ul>
             <div className="mt-4 flex justify-between">
               <button onClick={prevPage} disabled={page === 1} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded mr-2">Previous</button>
-              <button onClick={nextPage} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded">Next</button>
+              <button onClick={nextPage} disabled={page === totalPages} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded">Next</button>
             </div>
           </div>
           <div className="bg-white p-6 rounded-md shadow-lg">
@@ -100,6 +104,7 @@ const GitHubRepos = ({ username, selectedRepo, setSelectedRepo }) => {
 };
 
 export default GitHubRepos;
+
 
 
 
