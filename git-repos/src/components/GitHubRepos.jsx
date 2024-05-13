@@ -76,7 +76,7 @@ const GitHubRepos = ({ username, selectedRepo, setSelectedRepo }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl font-bold mb-4">Repositories</h2>
-            <ul>
+            <ul className='sm-bg-gray-200' >
               {repos.map(repo => (
                 <li key={repo.id} className="mb-4">
                   <button onClick={() => showRepoDetails(repo)} className="block w-full bg-gradient-to-r from-gray-600 to-gray-800 hover:bg-gradient-to-r hover:from-gray-900 hover:to-gray-800 text-white font-semibold py-2 px-4 rounded shadow-md transition duration-300 ease-in-out transform lg:hover:scale-105">
